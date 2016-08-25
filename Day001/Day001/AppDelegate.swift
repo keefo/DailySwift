@@ -17,14 +17,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
+
+        //Constants
         let hello = "Data Type in Swift:"
+        let hello_world : String = "Hello World!"
+
+        //Variables
         var textField1 : NSTextField
         var y = textField.frame.origin.y-30
         
         print(hello);
+        textField.stringValue = hello_world
         textField.stringValue = hello
-       
-        
+
+
         let varInt64 = UInt64.max
         textField1 = NSTextField()
         textField1.frame = NSMakeRect(textField.frame.origin.x, y, textField.frame.size.width, textField.frame.size.height)
@@ -170,7 +176,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.contentView?.addSubview(textField1)
         textField1.stringValue = "2d array:  \(varArray2D)"
         y -= 20
-        
+
+        struct Resolution {
+            var width = 0
+            var height = 0
+        }
+        var resolution = Resolution(width: 1024, height: 768)
+        textField1 = NSTextField()
+        textField1.frame = NSMakeRect(textField.frame.origin.x, y, textField.frame.size.width, textField.frame.size.height)
+        textField1.editable = false
+        textField1.bordered = false
+        textField1.font = textField.font
+        textField1.textColor = textField.textColor
+        textField1.autoresizingMask = textField.autoresizingMask
+        textField1.backgroundColor = NSColor.clearColor()
+        window.contentView?.addSubview(textField1)
+        textField1.stringValue = "struct:  \(resolution)"
+        y -= 20
+
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
